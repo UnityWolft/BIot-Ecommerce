@@ -1,0 +1,655 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#edf3e8;
+}
+/* ================= HEADER ================= */
+
+header{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:20px;
+
+    background:#fff;
+    padding:8px 20px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* ================= LOGO ================= */
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo a{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.logo img{
+    height:80px;
+    width:auto;
+    object-fit:contain;
+    display:block;
+}
+
+/* ================= BOTON HAMBURGUESA ================= */
+
+.menu-toggle{
+    font-size:32px;
+    color:#1d5c2b;
+    cursor:pointer;
+    z-index:1100;
+}
+
+/* ================= MENU LATERAL ================= */
+
+#menu{
+    position:fixed;
+    top:0;
+    left:-300px;
+
+    width:280px;
+    height:100vh;
+
+    background:#fff;
+
+    box-shadow:5px 0 15px rgba(0,0,0,.2);
+
+    transition:left .4s ease;
+
+    z-index:1001;
+}
+
+#menu.activo{
+    left:0;
+}
+
+/* ================= OPCIONES MENU ================= */
+
+#menu ul{
+    list-style:none;
+    padding-top:80px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+#menu ul li{
+    width:100%;
+    border-bottom:1px solid #ececec;
+}
+
+#menu ul li a{
+    display:block;
+
+    padding:18px 25px;
+
+    text-decoration:none;
+    color:#333;
+
+    font-size:18px;
+    font-weight:600;
+
+    background:transparent;
+
+    transition:.3s;
+}
+
+#menu ul li a:hover{
+    background:#f4f4f4;
+    color:#333;
+    padding-left:35px;
+}
+
+/* ================= OVERLAY ================= */
+
+.overlay{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.5);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.overlay.activo{
+    opacity:1;
+    visibility:visible;
+}
+.contact-section{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+}
+
+.contact-container{
+
+    width:100%;
+    max-width:1200px;
+
+    display:flex;
+    gap:40px;
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* ================= ACCIONES ================= */
+
+.acciones{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-left:auto;
+}
+
+/* ================= BUSCADOR ================= */
+
+.buscar{
+    position:relative;
+}
+
+.buscar input{
+    width:220px;
+    padding:10px 40px 10px 15px;
+
+    border:2px solid #7baa4b;
+    border-radius:25px;
+
+    outline:none;
+}
+
+.buscar i{
+    position:absolute;
+    right:15px;
+    top:12px;
+
+    color:#2c5e32;
+}
+
+/* ================= BOTONES ================= */
+
+.btn-login,
+.btn-registro,
+.btn-carrito{
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:25px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-login{
+    background:#1d5c2b;
+    color:#fff;
+}
+
+.btn-login:hover{
+    background:#143d1c;
+}
+
+.btn-registro{
+    background:#7baa4b;
+    color:#fff;
+}
+
+.btn-registro:hover{
+    background:#5f8937;
+}
+
+.btn-carrito{
+    background:#7baa4b;
+    color:#fff;
+}
+
+.btn-carrito:hover{
+    background:#143d1c;
+}
+
+/* ================= ENLACE ACTIVO ================= */
+
+.link-activo{
+    background:#7baa4b;
+    color:#fff !important;
+    border-radius:25px;
+    padding:10px 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .acciones{
+        flex-wrap:wrap;
+    }
+
+    .buscar input{
+        width:180px;
+    }
+
+    .logo img{
+        height:70px;
+    }
+}
+/* ================= MOVILES ================= */
+
+@media(max-width:768px){
+
+    header{
+        flex-wrap:wrap;
+        justify-content:space-between;
+        padding:10px;
+        gap:10px;
+    }
+
+    .logo img{
+        height:55px;
+    }
+
+    /* Mantener visibles los botones */
+    .acciones{
+        width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:8px;
+        margin-top:10px;
+    }
+
+    /* Ocultar solo buscador */
+    .buscar{
+        display:none;
+    }
+
+    .btn-login,
+    .btn-registro,
+    .btn-carrito{
+        font-size:14px;
+        padding:8px 12px;
+    }
+
+    /* Contacto */
+    .contact-section{
+        padding:20px 10px;
+    }
+
+    .contact-container{
+        flex-direction:column;
+        border-radius:15px;
+    }
+
+    .contact-info,
+    .contact-form-container{
+        padding:25px;
+    }
+
+    .contact-info h2{
+        font-size:28px;
+        text-align:center;
+    }
+
+    .subtitle{
+        font-size:16px;
+        text-align:center;
+    }
+
+    .info-item{
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+    }
+
+    .social-icons{
+        justify-content:center;
+    }
+
+    .brand-badge img{
+        width:180px;
+    }
+
+    footer{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+        padding:20px;
+    }
+
+    .redes{
+        display:flex;
+        justify-content:center;
+        gap:15px;
+    }
+}
+/* ================= BUSCADOR Y BOTONES ================= */
+
+.acciones{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.buscar{
+    position:relative;
+}
+
+.buscar input{
+    width:220px;
+    padding:10px 40px 10px 15px;
+    border:2px solid #7baa4b;
+    border-radius:25px;
+    outline:none;
+}
+
+.buscar i{
+    position:absolute;
+    right:15px;
+    top:12px;
+    color:#2c5e32;
+}
+
+.btn-login,
+.btn-registro,
+.btn-carrito{
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:25px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-login{
+    background:#1d5c2b;
+    color:white;
+}
+
+.btn-login:hover{
+    background:#143d1c;
+}
+
+.btn-registro{
+    background:#7baa4b;
+    color:white;
+}
+
+.btn-registro:hover{
+    background:#5f8937;
+}
+
+.btn-carrito{
+    background:#7baa4b;
+    color:white;
+}
+
+.btn-carrito:hover{
+     background:#143d1c;
+}
+
+/* PANEL IZQUIERDO */
+
+.contact-info{
+
+    flex:1;
+
+    background:#245b22;
+
+    color:white;
+
+    padding:50px;
+}
+
+.brand-badge{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.brand-badge img{
+    width:450px;
+    max-width:100%;
+    height:auto;
+    object-fit:contain;
+}
+
+.contact-info h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.info-details{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.info-item{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.info-item i{
+    font-size:24px;
+}
+
+.info-item h3{
+    margin-bottom:5px;
+}
+
+.social-media{
+    margin-top:40px;
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+    margin-top:15px;
+}
+
+.social-icons a{
+    color:white;
+    font-size:28px;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    transform:scale(1.1);
+}
+
+/* FORMULARIO */
+
+.contact-form-container{
+    flex:1;
+    padding:50px;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:#245b22;
+}
+
+.form-group input,
+.form-group textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    border:2px solid #d6e5d3;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:#4caf50;
+}
+
+.btn-submit{
+
+    background:#245b22;
+
+    color:white;
+
+    border:none;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn-submit:hover{
+    background:#1a4518;
+}
+/* ================= FOOTER ================= */
+
+footer{
+    background:#7baa4b;
+    color:white;
+    padding:25px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:40px;
+}
+
+.redes a{
+    color:white;
+    font-size:28px;
+    margin-left:15px;
+    transition:.3s;
+}
+
+.redes a:hover{
+    transform:scale(1.2);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .contact-container{
+        flex-direction:column;
+    }
+
+    .contact-info{
+        padding:35px;
+    }
+
+    .contact-form-container{
+        padding:35px;
+    }
+
+    .contact-info h2{
+        font-size:32px;
+    }
+
+    .brand-badge img{
+        width:200px;
+    }
+}
+
+/* ================= CELULARES PEQUEÑOS ================= */
+
+@media(max-width:480px){
+
+    .logo img{
+        height:45px;
+    }
+
+    .btn-login,
+    .btn-registro,
+    .btn-carrito{
+        width:100%;
+        text-align:center;
+    }
+
+    .contact-info,
+    .contact-form-container{
+        padding:20px;
+    }
+
+    .contact-info h2{
+        font-size:24px;
+    }
+
+    .subtitle{
+        font-size:14px;
+    }
+
+    .form-group input,
+    .form-group textarea{
+        padding:12px;
+        font-size:14px;
+    }
+
+    .btn-submit{
+        width:100%;
+    }
+
+    .brand-badge img{
+        width:140px;
+    }
+}

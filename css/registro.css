@@ -1,0 +1,317 @@
+/* RESET GENERAL */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#dff3e3,#f4faf5);
+    color:#333;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+/* HEADER */
+
+header{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:20px;
+
+    background:#fff;
+    padding:10px 25px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    height:80px;
+    width:auto;
+    max-width:200px;
+    object-fit:contain;
+}
+
+/* MENU HAMBURGUESA */
+
+.menu-toggle{
+    font-size:32px;
+    color:#1d5c2b;
+    cursor:pointer;
+}
+
+/* MENU */
+
+#menu{
+    position:fixed;
+    top:0;
+    left:-300px;
+
+    width:280px;
+    height:100vh;
+
+    background:#fff;
+
+    box-shadow:5px 0 15px rgba(0,0,0,.2);
+
+    transition:left .4s ease;
+
+    z-index:1001;
+}
+
+#menu.activo{
+    left:0;
+}
+
+#menu ul{
+    list-style:none;
+    padding-top:80px;
+}
+
+#menu li{
+    border-bottom:1px solid #ececec;
+}
+
+#menu a{
+    display:block;
+    padding:18px 25px;
+    color:#333;
+    font-size:18px;
+    font-weight:600;
+}
+
+#menu a:hover{
+    background:#f5f5f5;
+}
+
+/* OVERLAY */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+}
+
+.overlay.activo{
+    opacity:1;
+    visibility:visible;
+}
+/* ACCIONES */
+
+.acciones{
+    margin-left:auto;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.buscar{
+    position:relative;
+}
+
+.buscar input{
+    width:220px;
+
+    padding:10px 40px 10px 15px;
+
+    border:2px solid #7baa4b;
+    border-radius:25px;
+
+    outline:none;
+}
+
+.buscar i{
+    position:absolute;
+    right:15px;
+    top:12px;
+    color:#2c5e32;
+}
+
+.btn-login,
+.btn-registro,
+.btn-carrito{
+    text-decoration:none;
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn-login{
+    background:#1d5c2b;
+}
+
+.btn-registro{
+    background:#7baa4b;
+}
+
+.btn-carrito{
+    background:#7baa4b;
+}
+
+.btn-login:hover{
+    background:#143d1c;
+}
+
+.btn-registro:hover{
+    background:#5f8937;
+}
+
+.btn-carrito:hover{
+    background:#143d1c;
+}
+/* FORMULARIO */
+
+.container{
+    min-height:calc(100vh - 180px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+}
+
+.eco-form{
+    width:100%;
+    max-width:450px;
+
+    background:#fff;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.eco-form h2{
+    text-align:center;
+    color:#1d5c2b;
+    margin-bottom:10px;
+}
+
+.subtitulo{
+    text-align:center;
+    color:#6c8b72;
+    margin-bottom:30px;
+}
+.input-group{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-group i{
+    position:absolute;
+    left:15px;
+    top:16px;
+    color:#2e7d32;
+}
+
+.input-group input{
+    width:100%;
+
+    padding:15px 15px 15px 45px;
+
+    border:2px solid #d9eadb;
+
+    border-radius:12px;
+
+    outline:none;
+}
+
+.input-group input:focus{
+    border-color:#4caf50;
+}
+.btn-eco{
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:bold;
+
+    color:#fff;
+
+    background:linear-gradient(
+        90deg,
+        #1d5c2b,
+        #4caf50
+    );
+}
+footer{
+    background:#7baa4b;
+    color:white;
+
+    padding:25px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.redes a{
+    color:white;
+    font-size:28px;
+    margin-left:15px;
+}
+@media(max-width:768px){
+
+    .acciones{
+        display:none;
+    }
+
+    .logo img{
+        height:60px;
+    }
+
+    .eco-form{
+        width:95%;
+        padding:30px 20px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+}
