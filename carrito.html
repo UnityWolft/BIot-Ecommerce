@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Carrito - BioTransformo</title>
+
+<link rel="stylesheet" href="css/carrito.css">
+ 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const overlay = document.getElementById("overlay");
+
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+        overlay.classList.toggle("activo");
+    });
+
+    overlay.addEventListener("click", () => {
+        menu.classList.remove("activo");
+        overlay.classList.remove("activo");
+    });
+
+});
+</script>
+<body>
+
+<header>
+
+    <!-- BOTÓN HAMBURGUESA -->
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- LOGO -->
+     <div class="logo">
+            <a href="index.html">
+                <img src="img/biosn.png" alt="BioTransformo">
+            </a>
+        </div>
+    <!-- MENÚ LATERAL -->
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+            <li><a href="acerca.html"><i class="fas fa-info-circle"></i> ACERCA DE</a></li>
+            <li><a href="productos.html"><i class="fas fa-leaf"></i> PRODUCTOS</a></li>
+            <li><a href="Foro.html"><i class="fas fa-comments"></i> FORO</a></li>
+            <li><a href="contac.html"><i class="fas fa-envelope"></i> CONTACTO</a></li>
+        </ul>
+    </nav>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ACCIONES -->
+    <div class="acciones">
+
+            <div class="buscar">
+                <input type="text" placeholder="Buscar">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <a href="login.html" class="btn-login" id="btnLogin">
+             <i class="fas fa-sign-in-alt"></i>
+             Iniciar Sesión
+            </a>
+
+            <a href="registro.html" class="btn-registro" id="btnRegistro">
+              <i class="fas fa-user-plus"></i>
+                Registro
+            </a>
+            <a href="perfil.php" class="btn-login" id="btnPerfil" style="display:none;">
+                <i class="fas fa-user"></i>
+                Mi Perfil
+            </a>
+
+            <a href="carrito.html" class="btn-carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Carrito
+            </a>
+
+        </div>
+
+</header>
+<main class="carrito-container">
+
+    <h1 class="carrito-titulo">
+        Mis Compras
+    </h1>
+
+    <div class="carrito-layout">
+
+        <!-- Productos -->
+        <div id="carrito-productos" class="carrito-productos">
+
+        </div>
+
+        <!-- Resumen -->
+        <div class="resumen">
+
+            <h3>Resumen de Compra</h3>
+
+            <div class="resumen-linea">
+                <span>Subtotal</span>
+                <span id="subtotal">$0</span>
+            </div>
+
+            <div class="resumen-linea">
+                <span>Envío</span>
+                <span id="envio">$99</span>
+            </div>
+
+            <hr>
+
+            <div class="resumen-linea total">
+                <span>Total</span>
+                <span id="total">$0</span>
+            </div>
+
+            <button class="btn-pagar"
+                onclick="crearPedido()">
+                Finalizar pedido 
+                </button>
+
+            <button
+                class="btn-seguir"
+                onclick="window.location.href='productos.html'">
+                Seguir Comprando
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+ <br>
+  <br>
+   <br>
+    <br>
+    <div class="copyright">
+        COPYRIGHT © 2026 BIOTRANSFORMO
+    </div>
+
+    <div class="redes">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+
+</footer>
+<script>
+
+const contenedor =
+document.getElementById(
+    "carrito-productos"
+);
+
+async function cargarCarrito(){
+
+    const respuesta =
+        await fetch(
+            "api/obtener_carrito.php"
+        );
+
+    const carrito =
+        await respuesta.json();
+
+    let subtotal = 0;
+
+    contenedor.innerHTML = "";
+
+    if(carrito.length === 0){
+
+        contenedor.innerHTML = `
+            <div class="carrito-item">
+                <h3>
+                    Tu carrito está vacío 🛒
+                </h3>
+            </div>
+        `;
+
+        document.getElementById(
+            "subtotal"
+        ).textContent = "$0";
+
+        document.getElementById(
+            "total"
+        ).textContent = "$0";
+
+        return;
+    }
+
+    carrito.forEach(producto => {
+
+        const totalProducto =
+            producto.precio *
+            producto.cantidad;
+
+        subtotal += totalProducto;
+
+        const imagen =
+            producto.imagen
+            ? "uploads/" + producto.imagen
+            : "img/sin-imagen.png";
+
+        contenedor.innerHTML += `
+
+        <div class="carrito-item">
+
+            <img
+                src="${imagen}"
+                alt="${producto.nombre}">
+
+            <div class="carrito-info">
+
+                <h3>
+                    ${producto.nombre}
+                </h3>
+
+                <div class="cantidad-control">
+
+    <button
+        onclick="disminuirCantidad(${producto.id})">
+        -
+    </button>
+
+    <span>
+        ${producto.cantidad}
+    </span>
+
+    <button
+        onclick="aumentarCantidad(${producto.id})">
+        +
+    </button>
+
+</div>
+
+            </div>
+
+            <div class="carrito-precio">
+                $${totalProducto}
+            </div>
+            <button
+    class="btn-eliminar"
+    onclick="eliminarProducto(${producto.id})">
+
+    <i class="fas fa-trash"></i>
+
+</button>
+
+        </div>
+        
+        `;
+    });
+
+    const envio = 99;
+
+    document.getElementById(
+        "subtotal"
+    ).textContent =
+        "$" + subtotal;
+
+    document.getElementById(
+        "total"
+    ).textContent =
+        "$" + (subtotal + envio);
+}
+
+cargarCarrito();
+async function eliminarProducto(id){
+
+    if(!confirm(
+        "¿Eliminar producto del carrito?"
+    )){
+        return;
+    }
+
+    const formData =
+        new FormData();
+
+    formData.append(
+        "id",
+        id
+    );
+
+    const respuesta =
+        await fetch(
+            "api/eliminar_carrito.php",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+    const datos =
+        await respuesta.json();
+
+    if(datos.success){
+
+        cargarCarrito();
+
+    }else{
+
+        alert(
+            "No se pudo eliminar"
+        );
+    }
+}
+async function aumentarCantidad(id){
+
+    const formData = new FormData();
+
+    formData.append("id", id);
+
+    await fetch(
+        "api/aumentar_carrito.php",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+
+    cargarCarrito();
+}
+
+async function disminuirCantidad(id){
+
+    const formData = new FormData();
+
+    formData.append("id", id);
+
+    await fetch(
+        "api/disminuir_carrito.php",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+
+    cargarCarrito();
+}
+async function crearPedido(){
+
+const respuesta =
+    await fetch(
+        "api/crear_pedido.php",
+        {
+            method: "POST"
+        }
+    );
+
+const datos =
+    await respuesta.json();
+
+if(datos.success){
+
+    window.location.href =
+        "pago.php?id=" + datos.pedido_id;
+
+}else{
+
+    alert(
+        datos.mensaje ||
+        "Error al crear pedido"
+    );
+}
+
+
+}
+
+
+</script>
+<script src="js/sesion.js"></script>
+</body>
+</html>

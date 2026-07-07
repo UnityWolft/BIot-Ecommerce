@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - BioTransformo</title>
+
+<link rel="stylesheet" href="css/login.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+    <!-- MENU HAMBURGUESA -->
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- LOGO -->
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/biosn.png" alt="BioTransformo">
+        </a>
+    </div>
+
+    <!-- MENU LATERAL -->
+    <nav id="menu">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="fas fa-home"></i> INICIO
+                </a>
+            </li>
+
+            <li>
+                <a href="acerca.html">
+                    <i class="fas fa-info-circle"></i> ACERCA DE
+                </a>
+            </li>
+
+            <li>
+                <a href="productos.html">
+                    <i class="fas fa-leaf"></i> PRODUCTOS
+                </a>
+            </li>
+
+            <li>
+                <a href="contac.html">
+                    <i class="fas fa-envelope"></i> CONTACTO
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ACCIONES -->
+    <div class="acciones">
+
+        <div class="buscar">
+            <input type="text" placeholder="Buscar">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <a href="login.html" class="btn-header-login">
+            <i class="fas fa-sign-in-alt"></i>
+            Iniciar Sesión
+        </a>
+
+        <a href="registro.html" class="btn-registro">
+            <i class="fas fa-user-plus"></i>
+            Registro
+        </a>
+
+        <a href="carrito.html" class="btn-carrito">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Carrito
+        </a>
+
+    </div>
+
+</header>
+
+<!-- CONTENIDO -->
+
+<div class="container">
+
+    <div class="login-layout">
+
+        <div class="img-card">
+            <img src="img/bolsastela.png" alt="Bolsa ecológica">
+        </div>
+
+        <div class="img-card">
+            <img src="img/jabones.png" alt="Jabones ecológicos">
+        </div>
+
+        <div class="login-box">
+
+            <h1>BIOT</h1>
+            <p>Tu tienda ecológica</p>
+
+            <h2>Iniciar Sesión</h2>
+
+            <form id="formLogin">
+
+    <div class="input-group">
+        <i class="fa fa-envelope"></i>
+        <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="Correo electrónico"
+            required>
+    </div>
+
+    <div class="input-group">
+        <i class="fa fa-lock"></i>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Contraseña"
+            required>
+    </div>
+
+    <button type="submit" class="btn-login">
+        Entrar
+    </button>
+
+</form>
+
+            <small>
+                Únete a la transformación consciente
+            </small>
+
+        </div>
+
+        <div class="img-card">
+            <img src="img/cepillosdientes.png" alt="Cepillo ecológico">
+        </div>
+
+        <div class="img-card">
+            <img src="img/botellas.png" alt="Botellas reutilizables">
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="copyright">
+        COPYRIGHT © 2026 BIOTRANSFORMO
+    </div>
+
+    <div class="redes">
+        <a href="#">
+            <i class="fab fa-facebook"></i>
+        </a>
+
+        <a href="#">
+            <i class="fab fa-linkedin"></i>
+        </a>
+
+        <a href="#">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+</footer>
+
+<!-- SCRIPT MENU -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const overlay = document.getElementById("overlay");
+
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+        overlay.classList.toggle("activo");
+    });
+
+    overlay.addEventListener("click", () => {
+        menu.classList.remove("activo");
+        overlay.classList.remove("activo");
+    });
+
+});
+</script>
+
+<script src="js/login.js"></script>
+
+</body>
+</html>

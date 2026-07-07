@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioTransformo - Contacto</title>
+
+    <link rel="stylesheet" href="css/contac.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const overlay = document.getElementById("overlay");
+
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+        overlay.classList.toggle("activo");
+    });
+
+    overlay.addEventListener("click", () => {
+        menu.classList.remove("activo");
+        overlay.classList.remove("activo");
+    });
+
+});
+</script>
+<body>
+    
+<header>
+
+    <!-- MENU HAMBURGUESA -->
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- LOGO -->
+      <div class="logo">
+            <a href="index.html">
+                <img src="img/biosn.png" alt="BioTransformo">
+            </a>
+        </div>
+
+    <!-- MENU OCULTO -->
+    <nav id="menu">
+          <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+            <li><a href="acerca.html"><i class="fas fa-info-circle"></i> ACERCA DE</a></li>
+            <li><a href="productos.html"><i class="fas fa-leaf"></i> PRODUCTOS</a></li>
+            <li><a href="Foro.html"><i class="fas fa-comments"></i> FORO</a></li>
+            <li><a href="contac.html"><i class="fas fa-envelope"></i> CONTACTO</a></li>
+        </ul>
+    </nav>
+
+    <!-- FONDO OSCURO -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ACCIONES -->
+    <div class="acciones">
+
+            <div class="buscar">
+                <input type="text" placeholder="Buscar">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <a href="login.html" class="btn-login" id="btnLogin">
+             <i class="fas fa-sign-in-alt"></i>
+             Iniciar Sesión
+            </a>
+
+            <a href="registro.html" class="btn-registro" id="btnRegistro">
+              <i class="fas fa-user-plus"></i>
+                Registro
+            </a>
+            <a href="perfil.php" class="btn-login" id="btnPerfil" style="display:none;">
+                <i class="fas fa-user"></i>
+                Mi Perfil
+            </a>
+
+            <a href="carrito.html" class="btn-carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Carrito
+            </a>
+
+        </div>
+
+</header>
+
+<section class="contact-section">
+
+    <div class="contact-container">
+
+        <!-- INFORMACIÓN -->
+        <div class="contact-info">
+
+            <div class="brand-badge">
+                <img src="img/bioletrassn.png" alt="Biotransformo Logo">
+            </div>
+
+            <h2>Ponte en contacto con nosotros</h2>
+
+            <p class="subtitle">
+                Pequeñas acciones, grandes cambios.
+                Escríbenos y lleva tu estilo de vida al siguiente nivel sostenible.
+            </p>
+
+            <div class="info-details">
+
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+
+                    <div>
+                        <h3>Correo Electrónico</h3>
+                        <p>biottienda@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-globe"></i>
+
+                    <div>
+                        <h3>Sitio Web</h3>
+                        <p>https://biotransformo.com</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="social-media">
+
+                <p>Síguenos en nuestras redes:</p>
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/search/top?q=instituto%20empresarial%20y%20de%20certificaci%C3%B3n%20biotransformo    "><i class="fab fa-facebook-f"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+
+                    <a href="https://www.linkedin.com/in/instituto-empresarial-certificaci%C3%B3n-biotransformo-2a48ab57/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FORMULARIO -->
+<div class="contact-form-container">
+
+   <form class="contact-form" id="formContacto">
+
+    <div class="form-group">
+        <label>Nombre Completo</label>
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Ej. Franco Luis Angel"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label>Correo Electrónico</label>
+        <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="ejemplo@correo.com"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label>Asunto</label>
+        <input
+            type="text"
+            id="asunto"
+            name="asunto"
+            placeholder="¿En qué podemos ayudarte?"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label>Mensaje</label>
+
+        <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="5"
+            placeholder="Escribe tu mensaje aquí..."
+            required></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit">
+        Enviar Mensaje
+        <i class="fas fa-paper-plane"></i>
+    </button>
+
+</form>
+
+</div>
+
+    </div>
+
+</section>
+   <footer>
+
+        <div class="copyright">
+            COPYRIGHT © 2026 BIOTRANSFORMO
+        </div>
+
+        <div class="redes">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+    </footer>
+<script src="js/contacto.js"></script>
+<script src="js/sesion.js"></script>
+
+</body>
+</html>

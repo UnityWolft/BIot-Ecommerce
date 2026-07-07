@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - BioTransformo</title>
+
+    <link rel="stylesheet" href="css/registro.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <!-- MENÚ HAMBURGUESA -->
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/biosn.png" alt="BioTransformo">
+            </a>
+        </div>
+
+        <!-- MENÚ LATERAL -->
+        <nav id="menu">
+
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-home"></i> INICIO
+                    </a>
+                </li>
+
+                <li>
+                    <a href="acerca.html">
+                        <i class="fas fa-info-circle"></i> ACERCA DE
+                    </a>
+                </li>
+
+                <li>
+                    <a href="productos.html">
+                        <i class="fas fa-leaf"></i> PRODUCTOS
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contac.html">
+                        <i class="fas fa-envelope"></i> CONTACTO
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- OVERLAY -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- ACCIONES -->
+        <div class="acciones">
+
+            <div class="buscar">
+                <input type="text" placeholder="Buscar">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <a href="login.html" class="btn-login">
+                <i class="fas fa-sign-in-alt"></i>
+                Iniciar Sesión
+            </a>
+
+            <a href="registro.html" class="btn-registro">
+                <i class="fas fa-user-plus"></i>
+                Registro
+            </a>
+
+            <a href="carrito.html" class="btn-carrito">
+                <i class="fas fa-cart-shopping"></i>
+                Carrito
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENIDO -->
+
+    <main class="container">
+
+        <div class="eco-form">
+
+            <h2>Crear Cuenta</h2>
+
+            <p class="subtitulo">
+                Únete al consumo responsable
+            </p>
+
+            <form id="formRegistro">
+
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Nombre completo"
+                        required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="Correo electrónico"
+                        required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Contraseña"
+                        required>
+                </div>
+
+                <button type="submit" class="btn-eco">
+                    Registrarse
+                </button>
+
+            </form>
+
+            <p class="login-link">
+                ¿Ya tienes cuenta?
+                <a href="login.html">
+                    Inicia sesión
+                </a>
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="copyright">
+            COPYRIGHT © 2026 BIOTRANSFORMO
+        </div>
+
+        <div class="redes">
+
+            <a href="#">
+                <i class="fab fa-facebook"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+        </div>
+
+    </footer>
+
+    <!-- SCRIPT MENÚ -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const menuToggle = document.getElementById("menu-toggle");
+            const menu = document.getElementById("menu");
+            const overlay = document.getElementById("overlay");
+
+            menuToggle.addEventListener("click", () => {
+                menu.classList.toggle("activo");
+                overlay.classList.toggle("activo");
+            });
+
+            overlay.addEventListener("click", () => {
+                menu.classList.remove("activo");
+                overlay.classList.remove("activo");
+            });
+
+        });
+    </script>
+
+    <!-- TU SCRIPT DE REGISTRO -->
+    <script type="module" src="js/auth.js"></script>
+
+</body>
+
+</html>

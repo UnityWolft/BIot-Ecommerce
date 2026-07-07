@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - BioTransformo</title>
+
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const overlay = document.getElementById("overlay");
+
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+        overlay.classList.toggle("activo");
+    });
+
+    overlay.addEventListener("click", () => {
+        menu.classList.remove("activo");
+        overlay.classList.remove("activo");
+    });
+
+});
+</script>
+
+<body>
+
+<header>
+
+    <!-- BOTÓN HAMBURGUESA -->
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- LOGO -->
+     <div class="logo">
+            <a href="index.html">
+                <img src="img/biosn.png" alt="BioTransformo">
+            </a>
+        </div>
+
+    <!-- MENÚ LATERAL -->
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+            <li><a href="acerca.html"><i class="fas fa-info-circle"></i> ACERCA DE</a></li>
+            <li><a href="productos.html"><i class="fas fa-leaf"></i> PRODUCTOS</a></li>
+            <li><a href="Foro.html"><i class="fas fa-comments"></i> FORO</a></li>
+            <li><a href="contac.html"><i class="fas fa-envelope"></i> CONTACTO</a></li>
+        </ul>
+    </nav>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ACCIONES -->
+    <div class="acciones">
+
+            <div class="buscar">
+                <input type="text" placeholder="Buscar">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <a href="login.html" class="btn-login" id="btnLogin">
+             <i class="fas fa-sign-in-alt"></i>
+             Iniciar Sesión
+            </a>
+
+            <a href="registro.html" class="btn-registro" id="btnRegistro">
+              <i class="fas fa-user-plus"></i>
+                Registro
+            </a>
+            <a href="perfil.php" class="btn-login" id="btnPerfil" style="display:none;">
+                <i class="fas fa-user"></i>
+                Mi Perfil
+            </a>
+
+            <a href="carrito.html" class="btn-carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Carrito
+            </a>
+
+        </div>
+
+</header>
+
+    <section class="titulo-productos">
+
+        <h1>Nuestros Productos Ecológicos</h1>
+
+        <p>Productos sostenibles para un estilo de vida responsable.</p>
+
+    </section>
+    <section
+    class="productos-grid"
+    id="contenedor-productos">
+
+    </section>
+    
+    <footer>
+
+        <div class="copyright">
+            COPYRIGHT © 2026 BIOTRANSFORMO
+        </div>
+
+        <div class="redes">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+    </footer>
+
+    <script>
+
+        function agregarCarrito(nombre, precio, imagen) {
+
+            let carrito =
+                JSON.parse(localStorage.getItem("carrito")) || [];
+
+            const productoExistente = carrito.find(
+                item => item.nombre === nombre
+            );
+
+            if (productoExistente) {
+
+                productoExistente.cantidad++;
+
+            } else {
+
+                carrito.push({
+                    nombre: nombre,
+                    precio: precio,
+                    imagen: imagen,
+                    cantidad: 1
+                });
+
+            }
+
+            localStorage.setItem(
+                "carrito",
+                JSON.stringify(carrito)
+            );
+
+            alert(nombre + " agregado al carrito");
+
+            window.location.href = "carrito.html";
+        }
+
+    </script>
+<script src="js/sesion.js"></script>
+<script src="js/productos.js"></script>
+</body>
+
+</html>

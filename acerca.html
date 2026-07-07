@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de - BIOT</title>
+
+    <link rel="stylesheet" href="css/acerca.css">
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const overlay = document.getElementById("overlay");
+
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("activo");
+        overlay.classList.toggle("activo");
+    });
+
+    overlay.addEventListener("click", () => {
+        menu.classList.remove("activo");
+        overlay.classList.remove("activo");
+    });
+
+});
+</script>
+
+<body>
+
+<header>
+
+    <!-- MENU HAMBURGUESA -->
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- LOGO -->
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/biosn.png" alt="BIOT">
+        </a>
+    </div>
+
+    <!-- MENU OCULTO -->
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+            <li><a href="acerca.html"><i class="fas fa-info-circle"></i> ACERCA DE</a></li>
+            <li><a href="productos.html"><i class="fas fa-leaf"></i> PRODUCTOS</a></li>
+            <li><a href="Foro.html"><i class="fas fa-comments"></i> FORO</a></li>
+            <li><a href="contac.html"><i class="fas fa-envelope"></i> CONTACTO</a></li>
+
+            <li id="menuInventario" style="display:none;">
+                <a href="inventario.php">
+                    <i class="fas fa-boxes"></i>
+                    INVENTARIO
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- FONDO OSCURO -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ACCIONES -->
+    <div class="acciones">
+
+        <div class="buscar">
+            <input type="text" placeholder="Buscar">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <a href="login.html" class="btn-login" id="btnLogin">
+            <i class="fas fa-sign-in-alt"></i>
+            Iniciar Sesión
+        </a>
+
+        <a href="registro.html" class="btn-registro" id="btnRegistro">
+            <i class="fas fa-user-plus"></i>
+            Registro
+        </a>
+
+        <a href="perfil.php" class="btn-login" id="btnPerfil" style="display:none;">
+            <i class="fas fa-user"></i>
+            Mi Perfil
+        </a>
+
+        <a href="carrito.html" class="btn-carrito">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Carrito
+        </a>
+
+    </div>
+
+</header>
+
+<main class="about-container">
+
+    <section class="about-hero">
+        <h1>Acerca de BIOT</h1>
+        <p class="subtitle">Tienda en línea de productos ecológicos y sustentables</p>
+        <div class="divider"></div>
+    </section>
+
+    <section class="about-intro">
+        <p>
+            <strong>BIOT</strong> es una plataforma de comercio electrónico especializada en la venta de productos ecológicos, biodegradables y sustentables. Nuestro propósito es ofrecer alternativas responsables que contribuyan al cuidado del medio ambiente sin comprometer la calidad.
+        </p>
+
+        <p>
+            Trabajamos para que cada cliente disfrute de una experiencia de compra segura, rápida y confiable, brindando un catálogo de productos seleccionados que promueven un estilo de vida más sostenible y un consumo responsable.
+        </p>
+    </section>
+
+    <section class="about-philosophy">
+        <div class="philosophy-box">
+            <span class="heart-icon">🌱</span>
+
+            <p class="philosophy-text">
+                "Cada compra es una oportunidad para cuidar el planeta"
+            </p>
+
+            <p class="philosophy-sub">
+                Promovemos un consumo responsable mediante productos ecológicos que generan un impacto positivo en el medio ambiente.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-pillars">
+
+        <h2>Nuestros Servicios</h2>
+
+        <div class="pillars-grid">
+
+            <div class="pillar-card">
+                <div class="card-icon">🛒</div>
+
+                <h3>Compra en Línea</h3>
+
+                <p>
+                    Explora nuestro catálogo y adquiere productos ecológicos desde cualquier lugar mediante una plataforma fácil de usar, rápida y segura.
+                </p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="card-icon">🌿</div>
+
+                <h3>Productos Sustentables</h3>
+
+                <p>
+                    Ofrecemos artículos elaborados con materiales biodegradables, reciclables o reutilizables, cuidadosamente seleccionados por su calidad y compromiso ambiental.
+                </p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="card-icon">🚚</div>
+
+                <h3>Envíos Confiables</h3>
+
+                <p>
+                    Gestionamos tus pedidos de forma eficiente para que recibas tus productos en excelentes condiciones y con seguimiento durante todo el proceso de entrega.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="about-features">
+
+        <h2>¿Por qué elegir BIOT?</h2>
+
+        <ul class="features-list">
+
+            <li>
+                <strong>Calidad Garantizada:</strong>
+                Todos nuestros productos son cuidadosamente seleccionados para ofrecer funcionalidad y sostenibilidad.
+            </li>
+
+            <li>
+                <strong>Compra Segura:</strong>
+                Protegemos la información de nuestros clientes mediante procesos de compra confiables.
+            </li>
+
+            <li>
+                <strong>Compromiso Ambiental:</strong>
+                Impulsamos el consumo responsable y apoyamos el uso de productos amigables con el medio ambiente.
+            </li>
+
+            <li>
+                <strong>Atención Personalizada:</strong>
+                Nuestro equipo brinda soporte antes, durante y después de cada compra para garantizar la mejor experiencia.
+            </li>
+
+        </ul>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="copyright">
+        COPYRIGHT © 2026 BIOT
+    </div>
+
+    <div class="redes">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+
+</footer>
+
+<script src="js/sesion.js"></script>
+<script src="js/permisos.js"></script>
+
+</body>
+</html>

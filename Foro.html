@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro - BioTransformo</title>
+
+    <link rel="stylesheet" href="css/foro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/biosn.png" alt="BioTransformo">
+            </a>
+        </div>
+
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> INICIO</a></li>
+                <li><a href="acerca.html"><i class="fas fa-info-circle"></i> ACERCA DE</a></li>
+                <li><a href="productos.html"><i class="fas fa-leaf"></i> PRODUCTOS</a></li>
+                <li><a href="Foro.html"><i class="fas fa-comments"></i> FORO</a></li>
+                <li><a href="contac.html"><i class="fas fa-envelope"></i> CONTACTO</a></li>
+            </ul>
+        </nav>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="acciones">
+
+            <div class="buscar">
+                <input type="text" placeholder="Buscar">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <a href="login.html" class="btn-login" id="btnLogin">
+                <i class="fas fa-sign-in-alt"></i>
+                Iniciar Sesión
+            </a>
+
+            <a href="registro.html" class="btn-registro" id="btnRegistro">
+                <i class="fas fa-user-plus"></i>
+                Registro
+            </a>
+
+            <a href="perfil.php" class="btn-login" id="btnPerfil" style="display:none;">
+                <i class="fas fa-user"></i>
+                Mi Perfil
+            </a>
+
+            <a href="carrito.html" class="btn-carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Carrito
+            </a>
+
+        </div>
+
+    </header>
+
+    <main class="foro-container">
+
+        <h1 class="foro-titulo">
+            <i class="fas fa-comments"></i>
+            Foro de la Comunidad BioTransformo
+        </h1>
+
+        <section class="nuevo-tema">
+
+            <h2>Crear nueva publicación</h2>
+
+            <input
+                type="text"
+                id="tituloPublicacion"
+                placeholder="Título de la publicación">
+
+            <textarea
+                id="contenidoPublicacion"
+                placeholder="Escribe tu publicación aquí...">
+            </textarea>
+
+            <button
+                id="btnPublicar"
+                class="btn-publicar">
+
+                <i class="fas fa-paper-plane"></i>
+                Publicar
+
+            </button>
+
+        </section>
+
+        <!-- AQUÍ SE CARGARÁN LAS PUBLICACIONES Y COMENTARIOS -->
+
+        <section
+            class="foro-publicaciones"
+            id="contenedorPublicaciones">
+
+            <h2>Publicaciones</h2>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="copyright">
+            COPYRIGHT © 2026 BIOTRANSFORMO
+        </div>
+
+        <div class="redes">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+
+    </footer>
+    <!-- BOTÓN CHAT -->
+<div id="chat-toggle" onclick="toggleChat()">
+    🌱
+</div>
+
+<!-- CHATBOT -->
+<div id="chatbot" class="chat-minimizado">
+
+    <div id="chat-header">
+        <span>🌱 BioBot</span>
+        <button onclick="toggleChat()">−</button>
+    </div>
+
+    <div id="chat-body">
+        <div class="bot">
+            Hola 👋 Soy tu chatbot personal de BioTransformo.
+            ¿En qué puedo ayudarte?
+        </div>
+    </div>
+
+    <div id="chat-footer">
+        <input type="text" id="mensaje" placeholder="Escribe tu pregunta">
+        <button onclick="enviarMensaje()">Enviar</button>
+    </div>
+
+</div>
+
+    <script>
+
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+        const overlay = document.getElementById("overlay");
+
+        menuToggle.addEventListener("click", () => {
+            menu.classList.toggle("activo");
+            overlay.classList.toggle("activo");
+        });
+
+        overlay.addEventListener("click", () => {
+            menu.classList.remove("activo");
+            overlay.classList.remove("activo");
+        });
+
+    </script>
+
+    <script src="js/foro.js?v=1000"></script>
+    <script src="js/sesion.js"></script>
+    <script src="js/chatbot.js"></script>
+
+</body>
+
+</html>
